@@ -1,7 +1,10 @@
-<h1>Liste des tâches</h1>
+<h1>MY TODO LIST</h1>
 <%@tasks.each do |task|%>
-  <h2><%=task.completed%> <%=task.title%></h2>
-  <%=link_to "Click for Details",task_path(task)%>
+  <h2><%=task.completed%> <%=link_to task.title,task_path(task)%>
+  <%=link_to "Delete this task",
+  task_path(task.id),
+  method: :delete,
+  data: {confirm: "Are you sure?" }%>
+  </h2>
 <%end%>
-<h1></h1>
-<%=link_to "Create a new Task",new_task_path%>
+<%=link_to "Add a new Task",new_task_path%>
