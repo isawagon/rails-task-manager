@@ -4,10 +4,11 @@ Rails.application.routes.draw do
   # lire toutes les taches
   get 'tasks' => 'tasks#index'
   # create a task
-  get 'tasks/new' => 'tasks#new'
+  get 'tasks/new' => 'tasks#new', as: :new_task
   post 'tasks' => 'tasks#create'
   # lire 1 tache
   get 'tasks/:id' => 'tasks#show#', as: :task
-
-
+  # edit a task
+  get 'tasks/:id/edit' => 'tasks#edit', as: :edit_task
+  patch 'tasks/:id' => 'tasks#update'
 end
