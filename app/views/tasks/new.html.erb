@@ -1,0 +1,19 @@
+<%# 2 options :
+a) en natif  mais probleme de securite%>
+<%# <form action='/tasks' method='post'>
+  <input type='text' name='task[title]'>
+  <input type='text' name='task[details]'>
+  <input type='submit' value='create a new Task'>
+</form> %>
+
+<%# b) avec le helper form_for qui genere un token %>
+<h1>Creation d'une nouvelle tache</h1>
+<%=form_for @task do |f|%>
+  <%=f.label :title %>
+  <%=f.text_field:title %>
+  <%=f.label :details %>
+  <%=f.text_field:details %>
+  <%=f.submit%>
+<%end%>
+<h1></h1>
+<%=link_to "Back to the list", tasks_path%>
