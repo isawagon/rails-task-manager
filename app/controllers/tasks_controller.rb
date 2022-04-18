@@ -13,8 +13,9 @@ class TasksController < ApplicationController
 
   def create
     # Task.create(params[:task]) # remplacé ci-dessous pour securité
-    Task.create(task_params)
-    redirect_to tasks_path # ou redirect_to task_path(task)
+    task = Task.new(task_params)
+    task.save
+    redirect_to tasks_path
   end
 
   def edit

@@ -1,3 +1,29 @@
 // Place all the styles related to the tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.tasks {
+  list-style-type: none;
+  text-align: left;
+  line-height: 40 px;
+  font-size: large;
+  word-spacing: 40px;
+}
+
+.container {
+  width: 700px;
+  margin: 40px auto;
+  border: solid;
+  color: #03325b;
+  border-color: #337AB7;
+  padding-bottom: 32px;
+  border-radius: 5px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.tasks li {
+  padding: 12px;
+  align-items: baseline;
+}
+.tasks li:hover {
+  color:aqua
+}

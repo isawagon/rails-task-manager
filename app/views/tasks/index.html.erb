@@ -1,10 +1,24 @@
-<h1>MY TODO LIST</h1>
-<%@tasks.each do |task|%>
-  <h2><%=task.completed%> <%=link_to task.title,task_path(task)%>
-  <%=link_to "Delete this task",
-  task_path(task.id),
-  method: :delete,
-  data: {confirm: "Are you sure?" }%>
-  </h2>
-<%end%>
-<%=link_to "Add a new Task",new_task_path%>
+<div class="container">
+  <h1>MY TODO LIST</h1>
+
+<ul class="tasks">
+    <%@tasks.each do |task|%>
+      <li>
+      <%if task.completed%>
+        <i class="fa fa-check-square-o"></i>
+      <% else %>
+        <i class = "fa fa-square-o"></i>
+      <% end %>
+      <%=link_to task.title,task_path(task)%>
+      <%=link_to task_path(task.id),
+      method: :delete,
+      data: {confirm: "Are you sure?" } do%>
+      <i class="fa fa-trash-o"></i>
+      <%end%>
+      </li>
+    <%end%>
+ </ul>
+  <%=link_to new_task_path do %>
+  <i class = "fa fa-plus"></i> Add a new task
+  <% end %>
+</div>
